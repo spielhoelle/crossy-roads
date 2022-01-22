@@ -2,20 +2,21 @@ var WORTAL_API_INIT_SCRIPT = document.createElement("script");
 WORTAL_API_INIT_SCRIPT.src = "WortalAd.js";
 WORTAL_API_INIT_SCRIPT.type = 'text/javascript';
 const headTag = document.getElementsByTagName("head");
+const run = () => {
+	var audio = new Audio('fr_soundtrack.mp3');
+	audio.play();
+	requestAnimationFrame(animate);
+}
 
 if (!window.location.href.includes('http://localhost')) {
 	headTag[headTag.length - 1].appendChild(WORTAL_API_INIT_SCRIPT);
 } else {
 	document.getElementById("black-cover").hidden = true;
+	run()
 }
 window.addEventListener('WortalAdLoaded', function (e) {
-	console.log(`e`, e)
-	var audio = new Audio('fr_soundtrack.mp3');
-	audio.play();
-	requestAnimationFrame(animate);
+	run()
 }, false);
-
-
 const counterDOM = document.getElementById('counter');
 const endDOM = document.getElementById('end');
 
