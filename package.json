@@ -1,0 +1,20 @@
+{
+  "name": "crossy-roads",
+  "version": "1.0.0",
+  "description": "Jump and run game inspired by this [pen](https://codepen.io/HunorMarton/pen/JwWLJo)",
+  "main": "index.js",
+  "scripts": {
+    "build": "cp -r !(package.json|build) build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spielhoelle/crossy-roads.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spielhoelle/crossy-roads/issues"
+  },
+  "homepage": "https://github.com/spielhoelle/crossy-roads#readme"
+}
