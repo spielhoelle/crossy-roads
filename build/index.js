@@ -1,3 +1,21 @@
+var WORTAL_API_INIT_SCRIPT = document.createElement("script");
+WORTAL_API_INIT_SCRIPT.src = "WortalAd.js";
+WORTAL_API_INIT_SCRIPT.type = 'text/javascript';
+const headTag = document.getElementsByTagName("head");
+
+if (!window.location.href.includes('http://localhost')) {
+	headTag[headTag.length - 1].appendChild(WORTAL_API_INIT_SCRIPT);
+} else {
+	document.getElementById("black-cover").hidden = true;
+}
+window.addEventListener('WortalAdLoaded', function (e) {
+	console.log(`e`, e)
+	var audio = new Audio('fr_soundtrack.mp3');
+	audio.play();
+	requestAnimationFrame(animate);
+}, false);
+
+
 const counterDOM = document.getElementById('counter');
 const endDOM = document.getElementById('end');
 
@@ -452,6 +470,8 @@ window.addEventListener("keydown", event => {
 });
 
 function move(direction) {
+	var jumpAudio = new Audio('fr_frog_jump.mp3');
+	jumpAudio.play();
 	const finalPositions = moves.reduce((position, move) => {
 		if (move === 'forward') return { lane: position.lane + 1, column: position.column };
 		if (move === 'backward') return { lane: position.lane - 1, column: position.column };
@@ -595,4 +615,3 @@ function animate(timestamp) {
 	renderer.render(scene, camera);
 }
 
-requestAnimationFrame(animate);
