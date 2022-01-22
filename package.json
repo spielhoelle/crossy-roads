@@ -4,7 +4,8 @@
   "description": "Jump and run game inspired by this [pen](https://codepen.io/HunorMarton/pen/JwWLJo)",
   "main": "index.js",
   "scripts": {
-    "build": "cp -r !(package.json|build) build"
+    "build": "cp ../../html5-games/Utils/* ./build",
+    "zip": "rm -rf crossy-roads.zip; cd build && zip -vr ../crossy-roads.zip * && cd .. && rsync -av --delete --progress ./ ../../html5-games/crossy-roads --exclude '.git' --exclude 'node_modules'"
   },
   "repository": {
     "type": "git",
